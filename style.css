@@ -1,0 +1,23 @@
+h1{
+     margin: 0 0 30px 0;
+}
+
+label {
+     display: inline-block;
+     width: 100px;
+     margin: 5px;;
+ }
+ .result, .notification {
+     color: red;
+     font-weight: bold;
+ }
+ .operator, button {
+     margin: 7px;;
+ }
+ #calcForm{
+     display: flex;
+     margin-left: 10px;
+ }
+ .operator {
+     accent-color: black; 
+ }

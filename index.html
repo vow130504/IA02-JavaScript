@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bé tập tính</title>    
+</head>
+<body>
+
+    <h1>Bé tập tính</h1>
+    <form id="calcForm">
+
+        <div class="input-data">
+            <label for="num1">Số thứ nhất</label>
+            <input type="text" id="num1" name="num1" onblur="validateNumber()">
+            <br>
+            <label for="num2">Số thứ hai</label>
+            <input type="text" id="num2" name="num2" onblur="validateNumber()">
+            <br>
+            <label for="result">Kết quả</label>
+            <input type="text" id="result" name="result" readonly>
+            <br>
+        </div>
+
+
+        <div>
+        </div>
+
+        
+        <div>
+          <div>
+               <input type="radio" name="operation" value="add" class="operator"> Cộng
+               <input type="radio" name="operation" value="subtract" class="operator"> Trừ
+          </div>
+          <div>
+               <input type="radio" name="operation" value="multiply" class="operator"> Nhân
+               <input type="radio" name="operation" value="divide" class="operator"> Chia   
+          </div>
+          <div>
+               <button type="button" onclick="calculate()">Tính</button>
+          </div>
+        </div>
+
+        <br>
+        <br><br>
+     </form>
+     
+     <label for="">Thông báo</label>
+     <span id="notification" class="notification"></span>
+
+    <script>
+        function isNumber(value) {
+            return !isNaN(value) && value.trim() !== '';
+        }
+
+        function validateNumber() {
+            var num1 = document.getElementById('num1').value;
+            var num2 = document.getElementById('num2').value;
+            var notificationField = document.getElementById('notification');
+            notificationField.innerHTML = ''; 
+
+            
+            if (!isNumber(num1) && !isNumber(num2)) {
+                notificationField.innerHTML = 'Giá trị nhập ở ô <i>Số thứ hai</i> và ô <i>Số thứ nhất</i> không phải là số';
+                return false; 
+            }
+            if (!isNumber(num1)) {
+                notificationField.innerHTML = 'Giá trị nhập ở ô <i>Số thứ nhất</i> không phải là số';
+                return false; 
+            }
+            if (!isNumber(num2)) {
+                notificationField.innerHTML = 'Giá trị nhập ở ô <i>Số thứ hai</i> không phải là số';
+                return false; 
+            }
+            return true; 
+        }
+
+        function calculate() {
+            var isValid = validateNumber(); 
+            if (!isValid) return; 
+
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var resultField = document.getElementById('result');
+            var notificationField = document.getElementById('notification');
+            var operation = document.querySelector('input[name="operation"]:checked');
+
+            
+
+            resultField.value = '';
+            notificationField.innerHTML = '';
+
+            
+            if (!operation) {
+                notificationField.innerHTML = 'Chưa chọn phép tính';
+                return;
+            }
+
+            var result;
+            operation = operation.value;
+
+
+            if (operation === 'add') {
+                result = num1 + num2;
+            } else if (operation === 'subtract') {
+                result = num1 - num2;
+            } else if (operation === 'multiply') {
+                result = num1 * num2;
+            } else if (operation === 'divide') {
+                if (num2 === 0) {
+                    notificationField.innerHTML = 'Không thể chia cho 0';
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            
+
+
+            resultField.value = result;
+        }
+    </script>
+
+</body>
+</html>
