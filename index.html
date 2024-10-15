@@ -5,49 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Bé tập tính</title>    
+    <script src="https://cdn.tailwindcss.com"></script>
+        
+        
 </head>
 <body>
-
-    <h1>Bé tập tính</h1>
-    <form id="calcForm">
-
-        <div class="input-data">
+    
+    <div class="grid grid-cols-9 ml-2">
+        <div class="col-span-full w-full title pb-10">
+            Bé tập tính
+        </div>
+        <div class="flex items-center text-3xl">
             <label for="num1">Số thứ nhất</label>
+
+        </div>
+        <div class="col-span-5">
             <input type="text" id="num1" name="num1" onblur="validateNumber()">
-            <br>
+        </div>
+
+        <div class="flex-container">
+            <input type="radio" name="operation" value="add" class="operator"> 
+            <label class="text-3xl">Cộng</label>            
+        </div>
+        <div class="flex-container mr-3">
+            <input type="radio" name="operation" value="subtract" class="operator"> 
+            <label class="text-3xl">Trừ</label>
+        </div>
+
+        <!-- Tạo ô rỗng cuối -->
+        <div>
+
+        </div>
+
+        <div class="col-span-full my-3">
+            
+        </div>
+        <div class="text-3xl">
             <label for="num2">Số thứ hai</label>
+        </div>
+
+        <div class="col-span-5">
             <input type="text" id="num2" name="num2" onblur="validateNumber()">
-            <br>
-            <label for="result">Kết quả</label>
+        </div>
+
+        <div class="flex-container">
+            <input type="radio" name="operation" value="multiply" class="operator"> 
+            <label class="text-3xl">Nhân</label>            
+        </div>
+        <div class="flex-container">
+            <input type="radio" name="operation" value="divide" class="operator"> 
+            <label class="text-3xl">Chia</label>
+        </div>
+
+        <div>
+
+        </div>
+        <div class="col-span-full my-3">
+            
+        </div>
+        <div class="flex-container">
+            <label class="text-3xl">Kết quả</label>
+        </div>
+        <div class="col-span-5">
             <input type="text" id="result" name="result" readonly>
-            <br>
+
         </div>
-
-
-        <div>
+        <div class="flex-container text-3xl">
+            <button class="button-calc w-full mx-8" type="button" onclick="calculate()">Tính</button>
         </div>
-
         
-        <div>
-          <div>
-               <input type="radio" name="operation" value="add" class="operator"> Cộng
-               <input type="radio" name="operation" value="subtract" class="operator"> Trừ
-          </div>
-          <div>
-               <input type="radio" name="operation" value="multiply" class="operator"> Nhân
-               <input type="radio" name="operation" value="divide" class="operator"> Chia   
-          </div>
-          <div>
-               <button type="button" onclick="calculate()">Tính</button>
-          </div>
+        <div></div>
+        <div></div>
+        <div class="col-span-full my-3">
+            
+        </div>
+        <div class="text-3xl">
+            <label for="">Thông báo</label>
+
         </div>
 
-        <br>
-        <br><br>
-     </form>
-     
-     <label for="">Thông báo</label>
-     <span id="notification" class="notification"></span>
+        <div class="col-span-5">
+            <span id="notification" class="notification  text-3xl"></span>
+        </div>
+    </div>
 
     <script>
         function isNumber(value) {
@@ -115,12 +155,10 @@
                 result = num1 / num2;
             }
 
-            
-
-
             resultField.value = result;
         }
     </script>
 
+    
 </body>
 </html>

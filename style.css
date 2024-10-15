@@ -1,16 +1,42 @@
-h1{
-     margin: 0 0 30px 0;
+*{
+    font-family: 'Times New Roman', Times, serif;
 }
+.title {
+    font-size: 50px;
+    font-weight: bold;
+}
+input{
+    border: 1px solid black;
+    width: 800px;
+    height: 40px;
+}
+.operator {
+    accent-color: black; 
+}
+.flex-container {
+    display: flex;
+    /* Đảm bảo các phần tử flex xếp chồng lên nhau */
+    justify-items: flex-start; /* Căn các phần tử về bên trái */
+    align-items: flex-start;
+}
+.notification {
+    color: red;
+    font-weight: bold;
 
+}
+.button-calc{
+    border: 1px solid black;
+    
+    background-color: rgb(182, 182, 182);
+    float: left;
+}
+/* 
 label {
      display: inline-block;
      width: 100px;
      margin: 5px;;
  }
- .result, .notification {
-     color: red;
-     font-weight: bold;
- }
+ .result, 
  .operator, button {
      margin: 7px;;
  }
@@ -18,6 +44,4 @@ label {
      display: flex;
      margin-left: 10px;
  }
- .operator {
-     accent-color: black; 
- }
+  */
