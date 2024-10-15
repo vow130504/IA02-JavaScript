@@ -30,6 +30,9 @@ input{
     background-color: rgb(182, 182, 182);
     float: left;
 }
+input{
+    padding: 5px;
+}
 /* 
 label {
      display: inline-block;
